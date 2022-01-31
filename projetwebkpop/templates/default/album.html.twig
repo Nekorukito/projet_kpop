@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<main role="main">
+    <div class="containerFlex">
+        <div class="partieFlexGauche">
+            <h1 class="TitreP"> {{ album.nom }}</h1>
+            <p>Cet album sorti le {{ album.DateSortie |format_datetime('full','none',locale='fr') }} possède {{ album.nbMorceaux }} titres.
+                <br> Le groupe qui l'a produit est {{ album.groupe.nom }}
+            </p>
+            <h2 class="TitreP">Liste des morceaux:</h2>
+            {% if album.chansons is empty %}
+
+                <p id="indispo">A venir</p>
+
+            {% else %}
+                {% for chanson in album.chansons %}
+                    <li><a href="{{ path('chanson',{id : chanson.id})}}"> {{ chanson.titre }}</a> - {{ chanson.duree |date('i:s') }}</li>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="partieFlexDroite">
+            <img src="/img/album/{{ album.affiche }}" alt="Affiche de l'album {{ album.nom }}">
+
+            <h2 class="TitreP">Liste des membres l'ayant composé</h2>
+            {% for artiste in album.groupe.artistes %}
+                <li id="center">{{ artiste.nom }} : <a href="{{ path('artiste',{id : artiste.id}) }}">en savoir plus</a></li>
+            {% endfor %}
+        </div>
+    </div>
+
+
+</main>
+{% endblock %}

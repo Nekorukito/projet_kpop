@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main>
+        <section class="jumbotron text-center">
+            <h1>Artistes</h1>
+            <p>Voici la liste des différents artistes que j'ai répertorié sur ce site. Si vous souhaitez davantage de précision, n'hésitez pas à cliquer dessus. </p>
+        </section>
+
+        <div>
+            <div class="container">
+
+                <div class="row">
+                    {% for i in artistes %}
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <h2 class="TitreP" id="center"> {{ i.nom }} - {{ i.groupe.nom }}</h2>
+                                <a href="{{ path('artiste',{id : i.id }) }}">
+                                    {% if i.photo is empty %}
+                                        <img src="{{ asset('img/artiste/defaut.jpg') }}">
+                                    {% else %}
+                                    <img src="{{ i.photo }}">
+                                        {% endif %}
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+{% endblock %}

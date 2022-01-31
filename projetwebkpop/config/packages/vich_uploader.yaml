@@ -1,0 +1,9 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        album_img:
+            uri_prefix: '%app.path.album_img%'
+            upload_destination: '%kernel.project_dir%/public/img/album'
+            #namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+

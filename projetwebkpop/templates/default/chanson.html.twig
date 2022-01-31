@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main role="main">
+        <div class="containerFlex">
+            <div class="partieFlexGauche">
+                <h1 class="TitreP"> {{ chanson.titre }}</h1>
+
+                <h2 class="TitreP">Informations</h2>
+                <p>Cette chanson de {{ chanson.duree |date('i:s') }} minutes vient de l'album <a href="{{ path('album',{id: chanson.album.id}) }}">{{ chanson.album.nom }}</a> du groupe <a href="{{ path('groupe',{id: chanson.album.groupe.id}) }}">{{ chanson.album.groupe.nom }}</a>.</p>
+
+                {% if chanson.lien is empty %}
+                <h1 id="indispo">clip indisponible</h1>
+                {% else %}
+                <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/{{ chanson.lien }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                {% endif %}
+            </div>
+            <div class="partieFlexDroite">
+                <h2 class="TitreP">Paroles</h2>
+                {% if chanson.lyric is empty %}
+                    <h1 id="indispo">paroles indisponibles</h1>
+                {% else %}
+                    <p>{{ chanson.lyric |nl2br }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+
+    </main>
+{% endblock %}

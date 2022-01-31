@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main role="main">
+        <div class="containerFlex">
+            <div class="partieFlexGauche">
+                <h1 class="TitreP"> {{ artiste.nom }}</h1>
+                {% if artiste.histoire is empty %}
+
+                    <p id="indispo">A venir</p>
+
+                {% else %}
+                    <p> {{ artiste.histoire }}</p>
+                {% endif %}
+            </div>
+            <div class="partieFlexDroite">
+                {% if artiste.photo is empty %}
+                    <img src="{{ asset('img/artiste/defaut.jpg') }}">
+                {% else %}
+                    <img src="{{ artiste.photo }}" alt="Photo de {{ artiste.nom }}">
+                {% endif %}
+                <h2 class="TitreP">Nationalité</h2>
+                <p>{{ artiste.nationalite }}</p>
+                <h2 class="TitreP">Age :</h2>
+                <p>{{ artiste.age }} ans</p>
+                <h2 class="TitreP">Groupe</h2>
+                <a href="{{ path('groupe',{id : artiste.groupe.id}) }}">{{ artiste.groupe.nom }}</a>
+
+            </div>
+        </div>
+
+
+    </main>
+{% endblock %}

@@ -1,0 +1,104 @@
+:root {
+    --couleur-bg-input-Poste : #242222;
+    --couleur-bg-btn: rgb(39,134, 197);
+    --Cbtn: white;
+    --CborderLogin: #cf2323;
+    --CbgLogin: #070100;
+}
+.container-login{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+/*Forme externe du formulaire*/
+.login-form-ext{
+    width: 500px;
+    background-color: white;
+    border-radius: 20px;
+    border: var(--CborderLogin) 2px solid;
+    overflow: hidden;
+
+
+    /*position*/
+    padding-right: 55px;
+    padding-left: 55px;
+    padding-bottom: 55px;
+    padding-top: 55px;
+}
+/*Forme interne du formulaire*/
+.login-form-int{
+    width: 100%;
+}
+/*Titre du formulaire*/
+#titre-form {
+    display: block;
+    font-size: 30px;
+    line-height: 1.2;
+    text-align: center;
+    color : var(--couleur-bg-btn);
+
+    /*Position*/
+    padding-bottom: 30px;
+}
+.login-form-user{
+    position: relative;
+    width: 100%;
+
+    margin-bottom: 20px;
+}
+/*Label des champs*/
+.login-form-user>div>label, .login-form-user>div>textarea , .login-form-ext>form>div>label{
+    color: var(--couleur-bg-btn);
+}
+.login-form-user>div>textarea{
+    margin-top: 10px;
+}
+
+
+/*Label du formulaire*/
+.label-input{
+    font-size: 15px;
+    line-height: 1.5;
+    color : var(--CtitreP);
+
+    /*Position*/
+    padding-left: 5px;
+}
+
+/*Champs a remplir*/
+.inputLogin{
+    display: block;
+    width: 100%;
+    line-height: 1.2;
+    height: 30px;
+    background-color: var(--couleur-bg-input-Poste);
+    border: none;
+    /*Texte*/
+    color : var(--CtitreP);
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/*Bouton*/
+.btn-form-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+.btn-form{
+    display: block;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    border-radius: 15px;
+    background: var(--couleur-bg-btn);
+
+    /*Texte du bouton*/
+    color: var(--Cbtn);
+    font-size: 20px;
+}

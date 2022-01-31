@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main role="main">
+        <div class="containerFlex">
+
+            <div class="partieFlexGauche">
+                <h1 class="TitreP"> {{ groupe.nom }}</h1>
+                <h2 class="TitreP">Description:</h2>
+                <p>{{ groupe.description }}</p>
+                <h2 class="TitreP">Liste des albums :</h2>
+                {% if groupe.albums is empty %}
+                    <p id="indispo">A venir</p>
+                {% else %}
+                    <ul class="album_liste_container">
+                        {% for album in groupe.albums %}
+                            <div class="album_liste_element">
+                                <li class="nom_album">{{ album.nom }} - {{ album.dateSortie |format_datetime('full','none',locale='fr') }}</li>
+                                <li>
+                                    <a href="{{ path ('album',{id : album.id }) }}"><img id="center" src="/img/album/{{ album.affiche }}" alt="affiche de l'album {{ album.nom }}"></a>
+                                </li>
+                            </div>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="partieFlexDroite">
+                {% if groupe.logo is empty %}
+                    <img src="{{ asset('img/logo/defautG.png') }}">
+                {% else %}
+                    <img class="imageWiki" src="{{ groupe.logo }}" alt="logo du groupe {{ groupe.nom }}">
+                {% endif %}
+                <h1 class="TitreP">Liste des membres</h1>
+                {% if groupe.artistes is empty %}
+                    <p id="indispo">A venir</p>
+                {% else %}
+                    {% for artiste in groupe.artistes %}
+                        <li id="center">{{ artiste.nom }} : <a href="{{ path('artiste',{id : artiste.id}) }}">en savoir plus</a> </li>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </main>
+{% endblock %}

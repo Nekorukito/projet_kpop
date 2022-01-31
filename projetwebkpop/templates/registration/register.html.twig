@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-login">
+        <div class="login-form-ext">
+            {% for flashError in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+            {% endfor %}
+
+            <span id="titre-form">Veuillez remplir ce formulaire d'inscription</span>
+            {{ form_start(registrationForm) }}
+            <div class="login-form-user">
+                {{ form_row(registrationForm.nom) }}
+            </div>
+            <div class="login-form-user">
+                {{ form_row(registrationForm.prenom) }}
+            </div>
+            <div class="login-form-user">
+                {{ form_row(registrationForm.username) }}
+            </div>
+            <div class="login-form-user">
+                {{ form_row(registrationForm.email) }}
+            </div>
+            <div class="login-form-user">
+                {{ form_row(registrationForm.plainPassword.first, {
+                }) }}
+            </div>
+            <div class="login-form-user">
+                {{ form_row(registrationForm.plainPassword.second, {
+                }) }}
+            </div>
+            {{ form_row(registrationForm.agreeTerms) }}
+            <div class="btn-form-container">
+                <button type="submit" class="btn-form">S'inscrire</button>
+            </div>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}

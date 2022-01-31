@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Kpop Project{% endblock %}</title>
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/cssajout/cssPerso.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/cssajout/login.css') }}">
+        <!-- bootstrap css -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <!-- style css -->
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <!-- Responsive-->
+        <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+
+        <!-- fevicon -->
+        <link rel="icon" href="{{ asset('images/fevicon.png') }}" type="image/gif">
+
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}">
+
+    {% endblock %}
+</head>
+<body>
+
+<!-- header -->
+<header>
+    <!-- header inner -->
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col logo_section">
+                    <div class="full">
+                        <div class="center-desk">
+                            <div class="logo">
+                                <a href="{{ path ('accueil')}}"><img class="logo_site" src="{{ asset('img/logo/logo.png') }}" alt="logo" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-area">
+                    <div class="limit-box">
+                        <nav class="main-menu">
+                            <ul class="menu-area-main">
+                                <li> <a href="{{ path('accueil') }}">Accueil</a> </li>
+                                <li><a href="{{ path('groupes') }}">Groupes</a> </li>
+                                <li><a href="{{ path('artistes') }}">Artistes</a> </li>
+                                <li><a href="{{ path('albums') }}">Albums</a> </li>
+                                <li><a href="http://localhost:8080/#/">Vuejs</a> </li>
+                                {% if app.user%}
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <li><a href="{{ path('admin') }}">Gestion du site</a> </li>
+                                    {% else %}
+                                        <li><a href="{{ path('admin') }}">Ajouter au site</a> </li>
+                                    {% endif %}
+                                    <li> <a href="{{ path('app_logout') }}">Deconnexion</a> </li>
+                                {% else %}
+                                    <li> <a href="{{ path('app_login') }}">Connexion</a> </li>
+                                    <li> <a href="{{ path('app_register') }}">S'inscrire</a> </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end header inner -->
+</header>
+<!-- end header -->
+{% block body %}{% endblock %}
+<!--  footer -->
+<footr id="footer_with_contact">
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-12 width">
+                    <div class="address">
+                        <h3>Contact</h3>
+                        <ul class="locarion_icon">
+                            <li><img src="{{ asset('icon/1.png') }}" alt="icon" />Université de la Rochelle , France</li>
+                            <li><img src="{{ asset('icon/2.png') }}" alt="icon" />Phone : ( +33 621176441 )</li>
+                            <li><img src="{{ asset('icon/3.png') }}" alt="icon" />Email : kevin.voisin@etudiant.univ-lr.fr</li>
+
+                        </ul>
+
+                        <ul class="contant_icon">
+                            <li><img src="{{ asset('icon/tw.png') }}" alt="icon" /></li>
+                            <li><img src="{{ asset('icon/instagram.png') }}" alt="icon" /></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 width">
+                    <div class="address">
+                        <h3>Get In Touch</h3>
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <input class="contactus" placeholder="Name" type="text" name="Name">
+                                </div>
+                                <div class="col-sm-12">
+                                    <input class="contactus" placeholder="Phone" type="text" name="Email">
+                                </div>
+                                <div class="col-sm-12">
+                                    <input class="contactus" placeholder="Email" type="text" name="Email">
+                                </div>
+                                <div class="col-sm-12">
+                                    <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button class="send">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2019 All Rights Reserved. <a href="https://html.design/">Free html Templates</a></p>
+        </div>
+    </div>
+</footr>
+<!-- end footer -->
+
+{% block javascripts %}
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.0.0.min.js') }}"></script>
+    <script src="{{ asset('js/plugin.js') }}"></script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,84 @@
+/*Variables*/
+:root {
+    --CtitreP: #3c4caa;
+    --CbackgGlobal : white;
+    --CbackgDroite: #d1d1d1;
+}
+/*Partie wiki groupe*/
+h1.TitreP, h2.TitreP, h3.TitreP {
+    color: var(--CtitreP);
+}
+h1.TitreP{
+    text-align: center;
+}
+
+.containerFlex{
+    width: 100%;
+    display: flex;
+    padding: 15px 15px 15px 15px;
+    flex-direction: row;
+    background-color: var(--CbackgGlobal);
+}
+.partieFlexGauche{
+    width: 75%;
+}
+.partieFlexDroite{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--CbackgDroite);
+
+}
+/*Partie sur les albums d'un groupe*/
+.album_liste_container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.album_liste_element{
+    min-width: 33%;
+    width: 33%;
+    max-width:50%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+/*Titre de l'album*/
+.nom_album{
+    text-align: center;
+}
+#center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*Partie droite d'un groupe*/
+.imageWiki{
+    max-height: 50%;
+    max-width: 100%;
+    background-color: var(--CbackgDroite);
+}
+
+/*Groupes*/
+.imgGroupes{
+    height: 100px;
+    width: 100%;
+    margin-top: 5px;
+}
+/*Chanson*/
+.video{
+    width: 1080px;
+    height: 720px;
+}
+#indispo{
+    color: red;
+    text-align: center;
+}
+
+/*Base*/
+.logo_site{
+    max-height: 80px;
+}
+#tailleTitreP{
+    font-size: 62px;
+}

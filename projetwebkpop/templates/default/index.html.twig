@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <body class="main-layout">
+    <h1 class="TitreP" id="tailleTitreP">KPOP PROJECT</h1>
+        <span>Bienvenue sur mon site dédié à la musique coréenne. Vous trouverez sur ce site différents groupes que j'affectionne, ainsi que leurs oeuvres.</span>
+
+
+<!-- Groupes -->
+<div id="screenshot" class="Albums">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Groupes </h2>
+                    <span>Voici une selection de certains groupes présents sur ce site. </span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container">
+
+                <div class="row">
+                    {% for i in groupes %}
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <h2 class="TitreP" id="center"> {{ i.nom }}</h2>
+                                <a href="{{ path ('groupe',{id : i.id }) }}"><img class="imgGroupes" src="{{ i.logo }}" alt="logo du groupe {{ i.nom }}"></a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Albums -->
+<div id="screenshot" class="Albums">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Albums </h2>
+                    <span>Voici une selection de certains albums présents sur ce site. </span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container">
+
+                <div class="row">
+                    {% for i in albums %}
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <h2 class="TitreP" id="center"> {{ i.nom }}</h2>
+                                <a href="{{ path ('album',{id : i.id }) }}"><img src="/img/album/{{ i.affiche }}" alt="affiche de l'album {{ i.nom }}"></a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end Albums -->
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main>
+        <section class="jumbotron text-center">
+            <h1>Albums</h1>
+            <p>Voici la liste des différents albums que j'ai répertorié sur ce site. Si vous souhaitez davantage de précision, n'hésitez pas à cliquer dessus. </p>
+        </section>
+
+        <div>
+            <div class="container">
+
+                <div class="row">
+                    {% for i in albums %}
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <h2 class="TitreP" id="center"> {{ i.nom }}</h2>
+                                <a href="{{ path ('album',{id : i.id }) }}"><img src="/img/album/{{ i.affiche }}" alt="affiche de l'album {{ i.nom }}"></a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
